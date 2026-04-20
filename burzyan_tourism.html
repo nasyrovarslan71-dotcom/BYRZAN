@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Туризм в Бурзянском районе</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green-dark: #1a3a2a;
+    --green-mid: #2d6a4f;
+    --green-light: #52b788;
+    --gold: #d4a843;
+    --gold-light: #f0c96e;
+    --cream: #faf6ef;
+    --brown: #5c3d2e;
+    --text: #1e1e1e;
+    --text-muted: #5a5a5a;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HEADER / HERO */
+  header {
+    position: relative;
+    min-height: 100vh;
+    background: var(--green-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(82,183,136,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(212,168,67,0.1) 0%, transparent 50%);
+  }
+
+  .forest-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    overflow: hidden;
+  }
+
+  .tree {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .tree svg { display: block; }
+
+  .stars {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 50%;
+    pointer-events: none;
+  }
+
+  .star {
+    position: absolute;
+    background: var(--gold-light);
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.2; transform: scale(1); }
+    to   { opacity: 0.9; transform: scale(1.4); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    margin: 1.5rem 0 2.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: var(--gold);
+    color: var(--green-dark);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .hero-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+    z-index: 10;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--green-dark);
+    border-bottom: 1px solid rgba(212,168,67,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* SECTION BASE */
+  section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--green-dark);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--green-mid);
+  }
+
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+    max-width: 680px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-map {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+    border: 1px solid rgba(45,106,79,0.2);
+    border-left: 3px solid var(--green-light);
+    background: var(--white);
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+  }
+
+  /* ATTRACTIONS */
+  .attract-section {
+    background: var(--green-dark);
+    max-width: 100%;
+    padding: 6rem 2rem;
+  }
+
+  .attract-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .attract-section .section-title { color: var(--white); }
+  .attract-section .section-label { color: var(--gold); }
+  .attract-section .divider { background: var(--gold); }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+  }
+
+  .card-icon {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4));
+  }
+
+  .card-body { padding: 1.5rem; }
+
+  .card-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(212,168,67,0.15);
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 1px;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-text {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* ACTIVITIES */
+  .activities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--white);
+    border: 1px solid rgba(45,106,79,0.12);
+    transition: box-shadow 0.2s;
+  }
+
+  .activity-item:hover {
+    box-shadow: 0 4px 20px rgba(45,106,79,0.12);
+  }
+
+  .activity-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .activity-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--green-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .activity-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* TIPS */
+  .tips-section {
+    background: linear-gradient(135deg, var(--green-dark) 0%, #0d2319 100%);
+    max-width: 100%;
+    padding: 6rem 2rem;
+  }
+
+  .tips-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tips-section .section-title { color: var(--white); }
+  .tips-section .section-label { color: var(--gold); }
+  .tips-section .divider { background: var(--gold); }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .tip-card {
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 2px solid var(--gold);
+  }
+
+  .tip-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: rgba(212,168,67,0.25);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .tip-text {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* SEASON */
+  .season-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(45,106,79,0.15);
+    border: 1px solid rgba(45,106,79,0.15);
+    margin-top: 3rem;
+    overflow: hidden;
+  }
+
+  .season-col {
+    background: var(--white);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .season-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+  .season-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--green-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .season-text {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .season-badge {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 1px;
+  }
+
+  .badge-best { background: rgba(82,183,136,0.15); color: var(--green-mid); }
+  .badge-good { background: rgba(212,168,67,0.15); color: var(--brown); }
+  .badge-mild { background: rgba(180,180,180,0.15); color: #777; }
+
+  /* GALLERY */
+  .gallery-section {
+    background: var(--cream);
+    max-width: 100%;
+    padding: 6rem 2rem;
+  }
+
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 220px 220px;
+    gap: 12px;
+    margin-top: 3rem;
+  }
+
+  .gallery-cell {
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+
+  .gallery-cell:hover { transform: scale(1.02); }
+  .gallery-cell:first-child { grid-row: span 2; }
+
+  .gallery-cell .g-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.5s;
+  }
+
+  .gallery-cell:hover .g-bg { transform: scale(1.08); }
+
+  .gallery-cell .g-label {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-align: center;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    padding: 1rem;
+  }
+
+  /* CONTACT */
+  .contact-strip {
+    background: var(--gold);
+    max-width: 100%;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .contact-strip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+  }
+
+  .contact-strip p {
+    color: var(--brown);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-strip a {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: var(--green-dark);
+    color: var(--gold-light);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin: 0 0.5rem 1rem;
+  }
+
+  .contact-strip a:hover { background: var(--green-mid); }
+
+  /* FOOTER */
+  footer {
+    background: #0d1f17;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .nav-links a { font-size: 0.7rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .season-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-cell:first-child { grid-row: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+  <!-- Forest silhouette SVG -->
+  <div class="forest-bg">
+    <svg viewBox="0 0 1440 340" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <path d="M0 340 L0 200 L40 160 L80 200 L120 140 L160 200 L200 120 L240 180 L280 100 L320 160 L360 80 L400 150 L440 70 L480 140 L520 90 L560 155 L600 60 L640 130 L680 75 L720 145 L760 55 L800 130 L840 80 L880 160 L920 70 L960 150 L1000 95 L1040 165 L1080 85 L1120 155 L1160 100 L1200 165 L1240 90 L1280 160 L1320 110 L1360 170 L1400 120 L1440 180 L1440 340 Z" fill="#0d2319" opacity="0.9"/>
+      <path d="M0 340 L0 240 L50 200 L100 240 L150 180 L200 230 L250 165 L300 220 L350 145 L400 210 L450 155 L500 215 L550 170 L600 225 L650 145 L700 205 L750 150 L800 215 L850 155 L900 225 L950 160 L1000 220 L1050 165 L1100 230 L1150 175 L1200 235 L1250 170 L1300 230 L1350 180 L1400 240 L1440 200 L1440 340 Z" fill="#1a3a2a" opacity="0.95"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Республика Башкортостан</p>
+    <h1 class="hero-title">Бурзянский<br><em>район</em></h1>
+    <p class="hero-subtitle">Жемчужина Южного Урала — дикая природа,<br>медовые традиции и первозданные реки</p>
+    <a href="#attractions" class="hero-cta">Открыть маршруты</a>
+  </div>
+
+  <p class="scroll-hint">↓ листайте вниз</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Бурзянский район</a>
+  <ul class="nav-links">
+    <li><a href="#about">О районе</a></li>
+    <li><a href="#attractions">Достопримечательности</a></li>
+    <li><a href="#activities">Активности</a></li>
+    <li><a href="#seasons">Когда ехать</a></li>
+    <li><a href="#tips">Советы</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">О районе</p>
+  <h2 class="section-title">Сердце Башкирского<br><em>заповедника</em></h2>
+  <div class="divider"></div>
+  <p class="section-text">
+    Бурзянский район — один из самых труднодоступных и красивых уголков Республики Башкортостан. Здесь сохранились нетронутые леса, горные реки и уникальная традиция бортничества — лесного пчеловодства, которому более тысячи лет.
+  </p>
+
+  <div class="about-grid">
+    <div>
+      <p class="section-text" style="margin-bottom:1.5rem;">
+        Территория района охватывает хребты Южного Урала: горы Ирандык и Крака, долины рек Белой (Агидель) и Нугуш. Здесь расположен единственный в мире природный заповедник, где сохранилось дикое бортничество башкирских пчёл.
+      </p>
+      <p class="section-text">
+        Район входит в список объектов всемирного наследия ЮНЕСКО — «Башкирский Урал». Здесь расположена известная пещера Шульган-Таш (Капова) с наскальными рисунками эпохи палеолита.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">4 916</div>
+          <div class="stat-label">кв. км площадь района</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">30 000+</div>
+          <div class="stat-label">га заповедных лесов</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">~16 000</div>
+          <div class="stat-label">жителей района</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">30 000</div>
+          <div class="stat-label">лет возраст рисунков в пещере</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG Map Illustration -->
+    <div class="about-visual">
+      <svg class="about-map" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg">
+        <rect width="460" height="380" fill="#1a3a2a" rx="4"/>
+        <!-- terrain dots -->
+        <g opacity="0.3">
+          <circle cx="80" cy="60" r="2" fill="#52b788"/>
+          <circle cx="120" cy="45" r="1.5" fill="#52b788"/>
+          <circle cx="380" cy="80" r="2" fill="#52b788"/>
+          <circle cx="350" cy="300" r="1.5" fill="#52b788"/>
+          <circle cx="60" cy="310" r="2" fill="#52b788"/>
+        </g>
+        <!-- Mountains -->
+        <polygon points="90,260 130,180 170,260" fill="#2d6a4f" opacity="0.8"/>
+        <polygon points="150,260 200,160 250,260" fill="#2d6a4f"/>
+        <polygon points="230,260 275,190 320,260" fill="#2d6a4f" opacity="0.9"/>
+        <polygon points="310,260 355,175 400,260" fill="#2d6a4f" opacity="0.7"/>
+        <!-- Snow peaks -->
+        <polygon points="200,160 220,190 180,190" fill="white" opacity="0.7"/>
+        <polygon points="275,190 290,215 260,215" fill="white" opacity="0.6"/>
+        <!-- River (Agidel) -->
+        <path d="M30,130 Q80,150 120,200 Q160,250 200,280 Q260,320 350,330" stroke="#52b788" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <text x="55" y="170" font-size="9" fill="#52b788" font-family="Raleway,sans-serif" transform="rotate(-30,55,170)">р. Агидель</text>
+        <!-- Cave marker -->
+        <circle cx="185" cy="290" r="8" fill="#d4a843" opacity="0.9"/>
+        <circle cx="185" cy="290" r="4" fill="#d4a843"/>
+        <text x="198" y="286" font-size="9" fill="#d4a843" font-family="Raleway,sans-serif">Шульган-Таш</text>
+        <!-- Village marker -->
+        <rect x="310" y="200" width="8" height="8" rx="1" fill="white" opacity="0.8"/>
+        <text x="322" y="210" font-size="9" fill="rgba(255,255,255,0.7)" font-family="Raleway,sans-serif">Старосубхангулово</text>
+        <!-- Compass -->
+        <text x="400" y="350" font-size="10" fill="rgba(255,255,255,0.3)" font-family="Raleway,sans-serif">С</text>
+        <line x1="408" y1="350" x2="408" y2="335" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <!-- Label -->
+        <text x="230" y="30" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.8)" font-family="Playfair Display,serif" font-style="italic">Бурзянский район</text>
+        <text x="230" y="47" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.4)" font-family="Raleway,sans-serif" letter-spacing="2">РЕСПУБЛИКА БАШКОРТОСТАН</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS -->
+<div class="attract-section" id="attractions">
+  <div class="attract-inner">
+    <p class="section-label">Главные места</p>
+    <h2 class="section-title">Достопримечательности</h2>
+    <div class="divider"></div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon" style="background: linear-gradient(135deg,#0d2319,#1a5c3a);">🦇</div>
+        <div class="card-body">
+          <span class="card-tag">ЮНЕСКО</span>
+          <h3 class="card-title">Пещера Шульган-Таш (Капова)</h3>
+          <p class="card-text">Легендарная пещера с наскальными рисунками эпохи палеолита — мамонты, носороги, лошади. Возраст рисунков около 14–17 тысяч лет. Трёхэтажная карстовая система протяжённостью более 3 км. Подземное озеро поражает воображение.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" style="background: linear-gradient(135deg,#1a3a2a,#2d5520);">🐝</div>
+        <div class="card-body">
+          <span class="card-tag">Природный заповедник</span>
+          <h3 class="card-title">Башкирский государственный заповедник</h3>
+          <p class="card-text">Единственное место на Земле, где сохранилась популяция чистокровных башкирских пчёл и традиция бортничества. Бортники собирают мёд прямо из дупел деревьев — этому промыслу более тысячи лет.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" style="background: linear-gradient(135deg,#143022,#0a4020);">🌊</div>
+        <div class="card-body">
+          <span class="card-tag">Рафтинг</span>
+          <h3 class="card-title">Река Белая (Агидель)</h3>
+          <p class="card-text">Главная водная артерия Башкортостана. Живописные ущелья, пороги и тихие плёсы. Популярный маршрут для сплава протяжённостью 100–250 км. Вода прозрачная — видно дно на глубине нескольких метров.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" style="background: linear-gradient(135deg,#2a1a0a,#4a2d0e);">🏔️</div>
+        <div class="card-body">
+          <span class="card-tag">Треккинг</span>
+          <h3 class="card-title">Хребты Ирандык и Крака</h3>
+          <p class="card-text">Горные хребты высотой до 800 м с панорамными видами на бесконечные леса и долины. Сеть пешеходных маршрутов для треккинга любого уровня подготовки. Встречаются медведи, лоси, рыси.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" style="background: linear-gradient(135deg,#1a2a3a,#0d1f3a);">⭐</div>
+        <div class="card-body">
+          <span class="card-tag">История</span>
+          <h3 class="card-title">Урочище Байрамгул</h3>
+          <p class="card-text">Живописная долина с древними башкирскими юртами и местами традиционных кочевий. Этнографический туризм, знакомство с культурой и бытом башкирского народа, национальная кухня.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon" style="background: linear-gradient(135deg,#1a3010,#264a15);">🌿</div>
+        <div class="card-body">
+          <span class="card-tag">Экология</span>
+          <h3 class="card-title">Нугушское водохранилище</h3>
+          <p class="card-text">Живописный водоём среди гор с чистейшей водой. Зона отдыха, рыбалка на хариуса и форель, плавание в горном озере. Рядом — водопад Куперля и каньон реки Нугуш.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <p class="section-label">Чем заняться</p>
+  <h2 class="section-title">Активный <em>отдых</em></h2>
+  <div class="divider"></div>
+  <p class="section-text">
+    Бурзянский район предлагает широкий спектр активностей на природе — от спокойного экотуризма до экстремального рафтинга.
+  </p>
+
+  <div class="activities-list">
+    <div class="activity-item">
+      <div class="activity-icon">🛶</div>
+      <div>
+        <div class="activity-name">Сплав по реке Белой</div>
+        <div class="activity-desc">Маршруты от 3 до 14 дней. Пороги II–III категории сложности. Аренда байдарок и катамаранов.</div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-icon">🥾</div>
+      <div>
+        <div class="activity-name">Пешие маршруты</div>
+        <div class="activity-desc">Треккинг по заповеднику, хребтам и к пещере Шульган-Таш. Маршруты для всех уровней.</div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-icon">🎣</div>
+      <div>
+        <div class="activity-name">Рыбалка</div>
+        <div class="activity-desc">Хариус, форель, щука и налим в кристальных горных реках и водохранилище.</div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-icon">🍯</div>
+      <div>
+        <div class="activity-name">Бортничество</div>
+        <div class="activity-desc">Экскурсии к бортникам. Можно увидеть уникальный процесс сбора мёда с диких ульев.</div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-icon">📸</div>
+      <div>
+        <div class="activity-name">Фотографирование</div>
+        <div class="activity-desc">Звёздное небо, рассветы над горами, дикая природа — рай для фотографов.</div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-icon">🏕️</div>
+      <div>
+        <div class="activity-name">Кемпинг</div>
+        <div class="activity-desc">Ночёвка у реки под звёздами. Оборудованные стоянки и дикий кемпинг.</div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-icon">🐎</div>
+      <div>
+        <div class="activity-name">Конные прогулки</div>
+        <div class="activity-desc">Башкирские лошади для конных экскурсий по горам и лесам района.</div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-icon">🏛️</div>
+      <div>
+        <div class="activity-name">Этнотуризм</div>
+        <div class="activity-desc">Юрты, национальные блюда — кумыс, казылык, башкирский мёд. Национальные праздники.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS -->
+<section id="seasons" style="background: transparent; max-width: 1200px;">
+  <p class="section-label">Время года</p>
+  <h2 class="section-title">Когда <em>приехать</em></h2>
+  <div class="divider"></div>
+  <p class="section-text">Каждый сезон в Бурзянском районе по-своему прекрасен. Выбор зависит от ваших предпочтений.</p>
+
+  <div class="season-grid">
+    <div class="season-col">
+      <div class="season-icon">🌿</div>
+      <div class="season-name">Весна</div>
+      <p class="season-text">Цветение трав и деревьев, паводки на реках. Пещера Шульган-Таш наиболее впечатляет. Птицы возвращаются.</p>
+      <span class="season-badge badge-good">хорошо</span>
+    </div>
+    <div class="season-col">
+      <div class="season-icon">☀️</div>
+      <div class="season-name">Лето</div>
+      <p class="season-text">Идеальный сезон. Сплав по Белой, пешие маршруты, купание. Бортники собирают мёд. Тепло +20–25°C.</p>
+      <span class="season-badge badge-best">лучшее время</span>
+    </div>
+    <div class="season-col">
+      <div class="season-icon">🍂</div>
+      <div class="season-name">Осень</div>
+      <p class="season-text">Золотые леса — нереальная красота. Грибная охота, рыбалка. Прохладно, меньше туристов.</p>
+      <span class="season-badge badge-best">лучшее время</span>
+    </div>
+    <div class="season-col">
+      <div class="season-icon">❄️</div>
+      <div class="season-name">Зима</div>
+      <p class="season-text">Снежные горы и замёрзшие водопады. Лыжные прогулки, охота, рыбалка со льда. Для любителей тишины.</p>
+      <span class="season-badge badge-mild">для ценителей</span>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<div class="tips-section" id="tips">
+  <div class="tips-inner">
+    <p class="section-label">Практичная информация</p>
+    <h2 class="section-title">Советы туристу</h2>
+    <div class="divider"></div>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-number">01</div>
+        <div class="tip-title">Как добраться</div>
+        <p class="tip-text">Ближайший крупный город — Уфа (350 км). На автомобиле: трасса М5, затем через Стерлитамак. Автобус Уфа — Старосубхангулово (районный центр) ходит ежедневно.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">02</div>
+        <div class="tip-title">Связь и навигация</div>
+        <p class="tip-text">Мобильная связь крайне слабая или отсутствует в большинстве мест. Загрузите офлайн-карты заранее. Спутниковый трекер — необходимость для дальних маршрутов.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">03</div>
+        <div class="tip-title">Разрешения</div>
+        <p class="tip-text">Для посещения Башкирского заповедника и пещеры Шульган-Таш нужен пропуск. Оформляется через администрацию заповедника в Старосубхангулово заранее.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">04</div>
+        <div class="tip-title">Снаряжение</div>
+        <p class="tip-text">Дождевик, трекинговая обувь, репеллент — обязательны. В горах температура ночью может опускаться до +5°C даже летом. Берите запас воды и еды.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">05</div>
+        <div class="tip-title">Где остановиться</div>
+        <p class="tip-text">Гостевые дома и базы отдыха в Старосубхангулово. Эко-кемпинги на берегу Агидели. В пиковый сезон бронируйте за 2–4 недели. Возможны ночёвки у местных жителей.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">06</div>
+        <div class="tip-title">Безопасность</div>
+        <p class="tip-text">Предупреждайте кого-то о своём маршруте. На территории обитают медведи — шумите на тропе. Питьевую воду из ручьёв лучше кипятить.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">07</div>
+        <div class="tip-title">Что купить</div>
+        <p class="tip-text">Башкирский дикий мёд — главный сувенир. Также: курут (сушёный творог), кумыс, изделия из бересты и дерева от местных мастеров.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-number">08</div>
+        <div class="tip-title">Уважайте природу</div>
+        <p class="tip-text">Не разводите костры вне специально отведённых мест. Забирайте мусор. Не тревожьте диких животных. Помните — вы гость в их доме.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY / NATURE SHOWCASE -->
+<div class="gallery-section">
+  <div class="gallery-inner">
+    <p class="section-label">Природа района</p>
+    <h2 class="section-title">Пейзажи <em>Бурзянского</em></h2>
+    <div class="divider"></div>
+
+    <div class="gallery-grid">
+      <div class="gallery-cell" style="grid-row: span 2;">
+        <div class="g-bg" style="background: linear-gradient(160deg, #0a2010 0%, #1a5c3a 50%, #2d8a5e 100%);"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4;" viewBox="0 0 300 500">
+          <polygon points="0,500 0,300 50,240 100,300 150,200 200,270 250,180 300,250 300,500" fill="#0d2319"/>
+          <polygon points="0,500 0,350 60,300 120,360 180,280 240,340 300,290 300,500" fill="#1a3a2a"/>
+        </svg>
+        <div class="g-label"><div style="font-size:1.5rem;">🌲</div>Вековые леса заповедника</div>
+      </div>
+
+      <div class="gallery-cell">
+        <div class="g-bg" style="background: linear-gradient(135deg, #1a2535 0%, #2a4a7a 100%);"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.5;" viewBox="0 0 300 220">
+          <path d="M0,180 Q50,130 100,160 Q150,190 200,140 Q250,90 300,120 L300,220 L0,220Z" fill="#1a3a2a"/>
+          <ellipse cx="150" cy="100" rx="40" ry="40" fill="none" stroke="#52b788" stroke-width="1" opacity="0.4"/>
+          <circle cx="80" cy="40" r="2" fill="white" opacity="0.8"/>
+          <circle cx="200" cy="30" r="1.5" fill="white" opacity="0.9"/>
+          <circle cx="250" cy="55" r="1" fill="white" opacity="0.7"/>
+          <circle cx="40" cy="70" r="2" fill="white" opacity="0.6"/>
+        </svg>
+        <div class="g-label"><div style="font-size:1.3rem;">🌙</div>Звёздные ночи в горах</div>
+      </div>
+
+      <div class="gallery-cell">
+        <div class="g-bg" style="background: linear-gradient(135deg, #3a2a0a 0%, #7a5a20 50%, #d4a843 100%);"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4;" viewBox="0 0 300 220">
+          <path d="M0,220 L0,120 Q75,60 150,90 Q225,120 300,70 L300,220Z" fill="#2a1a0a"/>
+        </svg>
+        <div class="g-label"><div style="font-size:1.3rem;">🍂</div>Золотая осень</div>
+      </div>
+
+      <div class="gallery-cell">
+        <div class="g-bg" style="background: linear-gradient(135deg, #0a2530 0%, #1a5a7a 100%);"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.5;" viewBox="0 0 300 220">
+          <path d="M0,220 L0,80 Q30,100 60,70 Q90,40 120,80 Q150,120 180,80 Q210,40 240,70 Q270,100 300,60 L300,220Z" fill="#052530" opacity="0.8"/>
+          <path d="M0,180 Q150,120 300,160 L300,220 L0,220Z" fill="#1a5a7a" opacity="0.5"/>
+        </svg>
+        <div class="g-label"><div style="font-size:1.3rem;">🌊</div>Река Белая (Агидель)</div>
+      </div>
+
+      <div class="gallery-cell">
+        <div class="g-bg" style="background: linear-gradient(135deg, #1a0a0a 0%, #4a1a1a 50%, #7a3a3a 100%);"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.4;" viewBox="0 0 300 220">
+          <ellipse cx="150" cy="140" rx="100" ry="60" fill="#2a0a0a" opacity="0.8"/>
+          <circle cx="150" cy="100" r="30" fill="none" stroke="#d4a843" stroke-width="0.5" opacity="0.5"/>
+        </svg>
+        <div class="g-label"><div style="font-size:1.3rem;">🦇</div>Пещера Шульган-Таш</div>
+      </div>
+
+      <div class="gallery-cell">
+        <div class="g-bg" style="background: linear-gradient(135deg, #edf7f0 0%, #52b788 50%, #2d6a4f 100%);"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3;" viewBox="0 0 300 220">
+          <circle cx="150" cy="100" r="60" fill="#d4a843" opacity="0.4"/>
+          <circle cx="150" cy="100" r="30" fill="#d4a843" opacity="0.5"/>
+          <circle cx="150" cy="100" r="10" fill="#d4a843" opacity="0.8"/>
+        </svg>
+        <div class="g-label" style="color: #1a3a2a; text-shadow: 0 1px 4px rgba(255,255,255,0.5);"><div style="font-size:1.3rem;">🍯</div>Дикий башкирский мёд</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-strip">
+  <h2>Планируйте путешествие</h2>
+  <p>Бурзянский район ждёт вас. Уточните маршруты и условия посещения заповедника у местных гидов и администрации.</p>
+  <a href="https://www.bashkortostan.ru" target="_blank">Сайт Башкортостана</a>
+  <a href="https://zapoved.ru/index.php?option=com_fabrik&view=details&formid=2&rowid=63" target="_blank">Заповедник</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Информационный туристический сайт · <span>Бурзянский район</span> · Республика Башкортостан</p>
+  <p style="margin-top:0.5rem; font-size:0.7rem;">Природа — наш общий дом. Сохраним её вместе.</p>
+</footer>
+
+<script>
+  // Generate stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.classList.add('star');
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      top:${Math.random()*95}%;
+      left:${Math.random()*100}%;
+      animation-delay:${Math.random()*4}s;
+      animation-duration:${2+Math.random()*3}s;
+    `;
+    starsEl.appendChild(s);
+  }
+</script>
+</body>
+</html>
